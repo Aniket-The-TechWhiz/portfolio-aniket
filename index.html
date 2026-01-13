@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aniket Yelameli | Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icon library (Font Awesome free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Material Icons (for Android or other material icons) -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Leaflet (OpenStreetMap) for interactive maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="avatar">
+      <img src="assets/avatar.png" alt="Aniket Yelameli">
+      <span class="online"></span>
+    </div>
+
+    <h2>Aniket Yelameli</h2>
+    <span class="role">Software Developer</span>
+
+    <div class="info">
+      <div class="info-item">
+        <span>Email</span>
+        <p>aniketyelameli26@gmail.com</p>
+      </div>
+
+      <div class="info-item">
+        <span>Phone</span>
+        <p>+91 9067432344</p>
+      </div>
+
+      <div class="info-item">
+        <span>Location</span>
+        <p>Maharashtra, Pune</p>
+      </div>
+    </div>
+
+    <!-- Social links (replace usernames with yours) -->
+    <div class="socials">
+      <a class="social-link" href="https://www.linkedin.com/in/aniket-yelameli/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+      <a class="social-link" href="https://github.com/Aniket-The-TechWhiz" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      <a class="social-link" href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <button class="profile-toggle" aria-expanded="false">Show more</button>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="content">
+
+    <!-- NAV -->
+    <nav class="tabs">
+      <a class="active" data-nav="about">About</a>
+      <a data-nav="resume">Resume</a>
+      <a data-nav="portfolio">Portfolio</a>
+      <a data-nav="contact">Contact</a>
+    </nav>
+
+    <!-- ================= PAGES ================= -->
+    <section class="section">
+
+      <!-- ===== ABOUT ===== -->
+      <div class="page active" data-page="about">
+        <h1>About Me</h1>
+        <div class="underline"></div>
+
+        <p class="desc">
+          Highly skilled Software Developer specializing in <b>Java Backend</b>, <b>Full-Stack Web</b>, 
+            and <b>Android Development</b>. I leverage <b>Spring Boot, REST APIs</b>, and professional 
+            <b>UI/UX design</b> to deliver scalable, high-performance applications with seamless 
+            real-time data integration and robust architectures.
+        </p>
+
+        <h2 class="sub-title">What I'm Doing</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>📱 Mobile Apps</h3>
+            <p>Professional development of applications for Android and iOS.</p>
+          </div>
+
+          <div class="card">
+            <h3>🌐 Web Development</h3>
+            <p>High-quality development of sites at the professional level.</p>
+          </div>
+
+          <div class="card">
+            <h3>🎨 UI/UX Design</h3>
+            <p>Modern, clean and professional UI/UX design solutions.</p>
+          </div>
+
+          <div class="card">
+            <h3>⚙️ Backend Development</h3>
+            <p>Scalable and high-performance backend services.</p>
+          </div>
+        </div>
+
+        <h2 class="sub-title">Skills</h2>
+
+        <div class="skills" aria-label="Skills carousel">
+          <!-- App / Mobile (using Simple Icons CDN) -->
+           <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
+            <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"></div>
+            <div class="skill"><img src="https://cdn.simpleicons.org/express" alt="Express.js"></div>
+          <div class="skill"><img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js"></div>
+
+          <div class="skill"><img src="https://cdn.simpleicons.org/android" alt="Android"></div>
+          <div class="skill"><img src="https://cdn.simpleicons.org/flutter" alt="Flutter"></div>
+          <div class="skill"><img src="https://cdn.simpleicons.org/dart" alt="Dart"></div>
+
+
+          <!-- Web -->
+          <div class="skill"><img src="https://cdn.simpleicons.org/html5" alt="HTML5"></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"></div>
+          <div class="skill"><img src="https://cdn.simpleicons.org/javascript" alt="JavaScript"></div>
+          <div class="skill"><img src="https://cdn.simpleicons.org/react" alt="React"></div>
+
+
+          <!-- Backend / Tools -->
+
+          <div class="skill"><img src="https://cdn.simpleicons.org/mysql" alt="MySQL"></div>
+          <div class="skill"><img src="https://cdn.simpleicons.org/mongodb" alt="MongoDB"></div>
+
+          <div class="skill"><img src="https://cdn.simpleicons.org/git" alt="Git"></div>
+          <div class="skill"><img src="https://cdn.simpleicons.org/postman" alt="Postman"></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" alt="Maven"></div>
+
+
+
+        </div>
+      </div>
+
+      <!-- ===== RESUME ===== -->
+      <div class="page" data-page="resume">
+        <h1>Resume</h1>
+        <div class="underline"></div>
+
+        <div class="resume-block">
+          <h2>Education</h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <div>
+                <h3>Trinity Academy of Engineering</h3>
+                <p>B.E. in Computer Engineering • 2024 — 2027</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <div>
+                <h3>Jayawantrao Sawant Polytechnic</h3>
+                <p>Diploma in Computer Engineering • 2021 — 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Experience</h2>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <div>
+                <h3>Java Development Intern — ShadowFox</h3>
+                <p>Aug 2025 — Sep 2025</p>
+                <ul>
+                  <li>Built a real-time chat application using Core Java and Socket Programming</li>
+                  <li>Implemented client–server communication with multithreading</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <div>
+                <h3>Android Developer — Proazure Software Solutions Pvt. Ltd.</h3>
+                <p>Jun 2023 — Jul 2023</p>
+                <ul>
+                  <li>Developed an Earthquake Alert System Android application</li>
+                  <li>Integrated Arduino sensor data and real-time alert visualization</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Resume download -->
+        <div class="resume-download">
+          <a href="assets/resume.pdf" download class="download-btn" aria-label="Download resume">Download Resume</a>
+        </div>
+      </div>
+
+      <!-- ===== PORTFOLIO ===== -->
+      <div class="page" data-page="portfolio">
+        <h1>Portfolio</h1>
+        <div class="underline"></div>
+
+        <div class="portfolio-filters">
+          <span class="filter active" data-filter="all">All</span>
+          <span class="filter" data-filter="app">Applications</span>
+          <span class="filter" data-filter="web">Web</span>
+          <span class="filter" data-filter="uiux">UI/UX</span>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-card" data-type="app">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/earthquake.jpg" alt="Earthquake Alert App">
+              <h3>Earthquake Alert App </h3>
+              <p>Applications</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="app">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/trav.png" alt="Traveling App">
+              <h3>Traveling App </h3>
+              <p>Applications</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="app">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/chat.png" alt="Chat App">
+              <h3>Chat App </h3>
+              <p>Applications</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="app">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/agri.png" alt="Krishirath App">
+              <h3>Krishirath App</h3>
+              <p>Applications</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="web">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/edu.jpeg" alt="Edu Platform">
+              <h3>Edu Platform</h3>
+              <p>Web</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="web">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/idp.jpeg" alt="IDP Generation System">
+              <h3>IDP Generation System</h3>
+              <p>Web</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="web">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/ecom.jpeg" alt="E-Commerce Platform">
+              <h3>E-Commerce Platform</h3>
+              <p>Web</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="web">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/realestate.jpeg" alt="Real Estate Platform">
+              <h3>Real Estate Platform</h3>
+              <p>Web</p>
+            </a>
+          </div>
+
+          <div class="portfolio-card" data-type="web">
+            <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/gdg.png" alt="GDGoC TAE Website">
+              <h3>GDGoC TAE Website</h3>
+              <p>Web</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- ===== CONTACT ===== -->
+ <div class="page" data-page="contact">
+  <h1>Contact</h1>
+  <div class="underline"></div>
+
+  <div class="contact-grid">
+    <div class="map-card">
+      <div id="map" aria-label="Map showing location"></div>
+      <p class="map-fallback">If the map doesn't load, <a href="https://maps.app.goo.gl/5RehhEoPbHLemxyK8?g_st=aw" target="_blank" rel="noopener noreferrer">open in Google Maps</a>.</p>
+    </div>
+
+    <form id="contact-form" class="contact-form">
+      <input id="c-name" name="name" type="text" placeholder="Full name" required>
+      <input id="c-email" name="email" type="email" placeholder="Email address" required>
+      <input id="c-subject" name="subject" type="text" placeholder="Subject">
+      <textarea id="c-message" name="message" placeholder="Your Message" required></textarea>
+      <button id="c-submit" type="submit">Send Message</button>
+      <div id="contact-status" style="margin-top: 10px; color: #f5c542; font-size: 14px;" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+    </section>
+  </main>
+</div>
+
+  <!-- MOBILE NAV (visible on small screens) -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <a data-nav="about" class="active">About</a>
+    <a data-nav="resume">Resume</a>
+    <a data-nav="portfolio">Portfolio</a>
+    <a data-nav="contact">Contact</a>
+  </nav>
+
+<!-- JS -->
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

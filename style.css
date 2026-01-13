@@ -1,0 +1,870 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1c1c1c, #0b0b0b);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 24px;
+}
+
+.sidebar {
+  flex: 0 0 280px;
+}
+
+/* Hide the mobile profile toggle on larger screens; only show under mobile media query */
+.profile-toggle {
+  display: none;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+  width: 280px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 24px;
+  padding: 16px 14px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  margin-bottom: 8px;
+}
+
+.avatar img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.online {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 14px;
+  height: 14px;
+  background: #3cff00;
+  border-radius: 50%;
+}
+
+/* Online pulsing animation */
+.online {
+  box-shadow: 0 0 0 rgba(60,255,0,0.6);
+  animation: pulseOnline 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseOnline {
+  0% {
+    box-shadow: 0 0 0 0 rgba(60,255,0,0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(60,255,0,0);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(60,255,0,0.6);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .online {
+    animation: none;
+  }
+}
+
+.sidebar h2 {
+  margin-top: 6px;
+}
+
+.role {
+  background: #2b2b2b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.socials {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  color: inherit;
+  text-decoration: none;
+  transition: background 160ms ease, transform 120ms ease;
+}
+
+.social-link i {
+  font-size: 18px;
+}
+
+.social-link:hover {
+  background: rgba(245,197,66,0.14);
+  transform: translateY(-3px);
+}
+
+.info {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.info-item {
+  margin-bottom: 8px;
+}
+
+.info-item span {
+  color: #aaa;
+  font-size: 12px;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border-radius: 24px;
+  padding: 30px;
+}
+
+/* Modern, subtle overlay scrollbar for main content */
+.content {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.06) transparent;
+}
+
+.content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  transition: background 160ms ease;
+}
+
+.content:hover::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+}
+
+/* Optional: make scrollbar slightly more visible while focusing the content */
+.content:focus-within::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+}
+
+/* NAV */
+.tabs {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.tabs a {
+  color: #aaa;
+  cursor: pointer;
+}
+
+.tabs a.active {
+  color: #f5c542;
+}
+
+/* SECTION */
+.section h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.desc {
+  color: #bbb;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.card h3 {
+  color: #f5c542;
+  margin-bottom: 6px;
+}
+
+/* SKILLS */
+.skills {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+.skill {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  background: #1e1e1e;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  scroll-snap-align: center;
+}
+
+.skill img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Ensure SVG icons inherit a neutral background and scale nicely */
+.skill img svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Webkit scrollbar styles for the skills row */
+.skills::-webkit-scrollbar {
+  height: 8px;
+}
+.skills::-webkit-scrollbar-track {
+  background: transparent;
+}
+.skills::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 8px;
+}
+
+/* RESUME */
+.resume-block {
+  margin-top: 30px;
+}
+
+.resume-block h2 {
+  margin-bottom: 20px;
+  color: #f5c542;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.timeline-item .dot {
+  width: 10px;
+  height: 10px;
+  background: #f5c542;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.timeline-item h3 {
+  font-size: 15px;
+}
+
+.timeline-item p {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.timeline-item ul {
+  padding-left: 18px;
+  color: #bbb;
+  font-size: 13px;
+}
+
+/* PORTFOLIO */
+.portfolio-filters {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0 30px;
+  font-size: 14px;
+}
+
+.filter {
+  cursor: pointer;
+  color: #aaa;
+}
+
+.filter.active {
+  color: #f5c542;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.portfolio-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+/* Hover overlay with eye icon */
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  z-index: 1;
+}
+
+.portfolio-card::after {
+  content: "👁";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  font-size: 26px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 2;
+}
+
+.portfolio-card:hover::before,
+.portfolio-card:focus-within::before {
+  opacity: 1;
+}
+
+.portfolio-card:hover::after,
+.portfolio-card:focus-within::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.portfolio-card img {
+  max-width: 120px;
+  margin-bottom: 16px;
+}
+
+.portfolio-card .project-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  padding: 12px;
+}
+
+.portfolio-card .project-link h3 {
+  color: #000;
+  margin: 8px 0 6px;
+}
+
+.portfolio-card .project-link p {
+  color: #555;
+  margin: 0;
+}
+
+.portfolio-card h3 {
+  color: #000;
+  font-size: 15px;
+}
+
+.portfolio-card p {
+  color: #555;
+  font-size: 13px;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+}
+
+/* COLOR VARIANTS */
+.portfolio-card.dark {
+  background: #000;
+}
+
+.portfolio-card.dark h3,
+.portfolio-card.dark p {
+  color: #fff;
+}
+
+.portfolio-card.pink {
+  background: #d81b8c;
+}
+
+.portfolio-card.red {
+  background: #e11d2e;
+}
+
+.portfolio-card.pink h3,
+.portfolio-card.red h3,
+.portfolio-card.pink p,
+.portfolio-card.red p {
+  color: #fff;
+}
+/* BLOG */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 22px;
+}
+
+.blog-card {
+  background: #1c1c1c;
+  border-radius: 20px;
+  padding: 26px;
+  transition: 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+}
+
+.blog-card .tag {
+  font-size: 12px;
+  color: #f5c542;
+}
+
+.blog-card .date {
+  font-size: 12px;
+  color: #aaa;
+  display: block;
+  margin-top: 12px;
+}
+
+.blog-card h2 {
+  margin: 14px 0;
+  font-size: 22px;
+}
+
+.blog-card h3 {
+  margin: 14px 0;
+  font-size: 16px;
+}
+
+.blog-card p {
+  color: #bbb;
+  font-size: 14px;
+}
+
+/* FEATURED */
+.blog-card.featured {
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+}
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.map-card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Map styles */
+#map {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.map-fallback {
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Pulsing marker using a DivIcon */
+.pulse-marker {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px; /* center horizontally */
+  margin-top: -10px;  /* center vertically */
+}
+.pulse-marker::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  background: #f5c542;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(245,197,66,0.7);
+  animation: pulse 1.6s infinite;
+}
+.pulse-marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 50%;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245,197,66,0.9);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(245,197,66,0);
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245,197,66,0);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border: 0;
+}
+
+.contact-form {
+  background: #1c1c1c;
+  border-radius: 20px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #000;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+.contact-form button {
+  background: #f5c542;
+  color: #000;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  opacity: 0.85;
+}
+
+/* Resume download button */
+.resume-download {
+  margin-top: 20px;
+}
+
+.download-btn {
+  display: inline-block;
+  background: #f5c542;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+/* MOBILE NAV */
+.mobile-nav {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+
+  .container {
+    flex-direction: column;
+    margin: 0;
+    padding: 14px;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  /* On mobile hide most profile details; show image and role only */
+  .sidebar h2,
+  .sidebar .info,
+  .socials {
+    display: none;
+  }
+
+  /* Show more toggle visible on mobile */
+  .profile-toggle {
+    display: inline-block;
+    margin-left: auto;
+    background: transparent;
+    color: #f5c542;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  /* When expanded, reveal the hidden profile details and stack vertically */
+  .sidebar.expanded h2,
+  .sidebar.expanded .info,
+  .sidebar.expanded .socials {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Make the info items stack and center on mobile */
+  .sidebar.expanded .info {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .sidebar.expanded .info .info-item {
+    display: block;
+  }
+
+  .sidebar.expanded .socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+  }
+
+  .role {
+    font-size: 12px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .tabs {
+    display: none;
+  }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    padding: 14px 0;
+    border-top: 1px solid #222;
+    z-index: 999;
+  }
+
+  .mobile-nav a {
+    font-size: 12px;
+    color: #aaa;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+  }
+
+  .mobile-nav a.active {
+    color: #f5c542;
+  }
+
+  /* GRIDS */
+  .cards,
+  .blog-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Portfolio grid: keep grid layout on mobile/tablet with 2 columns */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .blog-grid {
+    gap: 16px;
+  }
+
+  /* Single column on very small screens */
+  @media (max-width: 480px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  body {
+    padding-bottom: 70px;
+  }
+}
+.page {
+  display: none;
+  animation: fadeSlide 0.4s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card,
+.portfolio-card,
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.portfolio-card:hover,
+.blog-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.tabs a.active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #f5c542;
+  margin-top: 4px;
+}
+
+/* Sticky sidebar on wide screens: keep left section fixed while right scrolls */
+@media (min-width: 901px) {
+  .container {
+    align-items: flex-start;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 24px;
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+    z-index: 2;
+  }
+
+  /* Make content independently scrollable within viewport */
+  .content {
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+  }
+}
+
+
+.message-card {
+  padding: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
