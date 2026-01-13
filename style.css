@@ -868,3 +868,49 @@ body {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+/* Update these specific sections in your style.css */
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0; /* Remove padding from card so link can fill it */
+}
+
+/* Ensure the link fills the entire card area */
+.portfolio-card .project-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 24px; /* Move the padding here */
+  color: inherit;
+  text-decoration: none;
+  z-index: 5;
+  position: relative;
+}
+
+/* The hover overlays must ignore mouse clicks */
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  z-index: 1;
+  pointer-events: none; /* CRITICAL: Allows clicks to pass through to the link */
+}
+
+.portfolio-card::after {
+  content: "👁";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  font-size: 26px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 2;
+  pointer-events: none; /* CRITICAL: Allows clicks to pass through to the link */
+}
