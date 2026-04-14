@@ -5,27 +5,6 @@ const navs = document.querySelectorAll("[data-nav]");
 const GITHUB_USERNAME = "Aniket-The-TechWhiz";
 const TOP_PROJECTS_LIMIT = 4;
 
-async function loadRepoTrafficMetrics() {
-  try {
-    const response = await fetch(`data/repo-traffic.json?t=${Date.now()}`, {
-      cache: "no-store"
-    });
-
-    if (!response.ok) return new Map();
-    const payload = await response.json();
-    const repos = Array.isArray(payload.repos) ? payload.repos : [];
-
-    return new Map(
-      repos.map(repo => [repo.name, {
-        viewsCount: Number(repo.viewsCount) || 0,
-        uniqueVisitors: Number(repo.uniqueVisitors) || 0
-      }])
-    );
-  } catch {
-    return new Map();
-  }
-}
-
 function formatRepoUpdatedDate(isoDate) {
   const date = new Date(isoDate);
   if (Number.isNaN(date.getTime())) return "Updated recently";
@@ -52,14 +31,11 @@ async function loadLatestProjects() {
   const endpoint = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&direction=desc&per_page=20&type=owner`;
 
   try {
-    const [response, trafficMetrics] = await Promise.all([
-      fetch(endpoint, {
-        headers: {
-          Accept: "application/vnd.github+json"
-        }
-      }),
-      loadRepoTrafficMetrics()
-    ]);
+    const response = await fetch(endpoint, {
+      headers: {
+        Accept: "application/vnd.github+json"
+      }
+    });
 
     if (!response.ok) throw new Error("Failed to fetch repositories");
 
@@ -77,7 +53,6 @@ async function loadLatestProjects() {
       const description = escapeHtml(repo.description || "Active repository with recent commits and updates.");
       const language = escapeHtml(repo.language || "Multi-language");
       const repoName = escapeHtml(repo.name);
-      const traffic = trafficMetrics.get(repo.name) || { viewsCount: 0, uniqueVisitors: 0 };
       return `
         <article class="latest-project-card">
           <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="latest-project-link">
@@ -89,9 +64,6 @@ async function loadLatestProjects() {
             <div class="latest-project-meta">
               <span><i class="fa-solid fa-star" aria-hidden="true"></i> ${repo.stargazers_count}</span>
               <span><i class="fa-solid fa-code-fork" aria-hidden="true"></i> ${repo.forks_count}</span>
-              <span><i class="fa-solid fa-eye" aria-hidden="true"></i> ${traffic.viewsCount} views</span>
-              <span title="Unique visitors in last 14 days"><i class="fa-solid fa-users" aria-hidden="true"></i> ${traffic.uniqueVisitors}</span>
-              <span class="meta-updated">${formatRepoUpdatedDate(repo.pushed_at)}</span>
             </div>
           </a>
         </article>

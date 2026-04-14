@@ -426,14 +426,9 @@ body {
 .latest-project-meta {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 12px;
+  gap: 12px;
   font-size: 12px;
   color: #a9a9a9;
-}
-
-.meta-updated {
-  margin-left: auto;
 }
 
 .projects-loading {
@@ -1045,13 +1040,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
     gap: 10px;
-  }
-
-  .meta-updated {
-    width: 100%;
-    margin-left: 0;
   }
 
   .latest-project-link {
