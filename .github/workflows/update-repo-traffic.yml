@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   update-traffic:
-    if: ${{ secrets.GH_TRAFFIC_TOKEN != '' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +23,7 @@ jobs:
           OUTPUT_FILE: data/repo-traffic.json
           MAX_REPOS: "20"
         with:
-          github-token: ${{ secrets.GH_TRAFFIC_TOKEN }}
+          github-token: ${{ secrets.GH_TRAFFIC_TOKEN || github.token }}
           script: |
             const fs = require('fs');
 
